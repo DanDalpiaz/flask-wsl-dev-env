@@ -13,7 +13,7 @@
 1. Make bash the [default terminal in Visual Studio Code](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuration), and add some other default configurations
 
     ```
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe",
     "workbench.panel.defaultLocation": "right",
     "workbench.statusBar.visible": false,
     "workbench.activityBar.visible": false,
