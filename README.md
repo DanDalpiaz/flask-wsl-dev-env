@@ -57,6 +57,8 @@
     export FLASK_APP=flasky.py
     ```
 
+    The next time you start a bash session, the variables will be available. To see a list of all variables run `printenv`
+
 5. Create the db and run the app.
 
     ```
