@@ -1,12 +1,10 @@
 # Development Enviornment Setup for Flask on Windows Subsystem for Linux
 
-## Install WSL and Apps
+## Install WSL and Visual Studio Code
 
-1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). (NOTE: before installing the subsystem, there is a command that must be run using PowerShell as an Administrator - see the previous link). Choose the "Ubuntu" option in the Microsoft Store. The Microsoft Store method of installing WSL will only work with version 1803 or higher of Windows 10. After installing, "Launch" Ubuntu now that it is installed. You will be prompted to set a unix username and password.
+1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10). (NOTE: before installing the subsystem, there is a command that must be run using PowerShell as an Administrator - see the previous link). Choose the "Ubuntu" option in the Microsoft Store. The Microsoft Store method of installing WSL will only work with version 1803 or higher of Windows 10. After installing, "Launch" Ubuntu now that it is installed. You will be prompted to set a unix username and password. 
 
-2. Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/). Make sure to enable the setting to share a local drive with Docker. 
-
-3. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Configure Visual Studio Code
 
@@ -16,15 +14,13 @@
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe",
     ```
 
-2. Configure bash to run docker commands.
+## Configure Git
 
-     ```
-    MOVE TO .bashrc 
+1. Run the following commands:
 
-    export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-    export PATH="$PATH:/mnt/c/Program\ Files/Docker/Docker/resources/bin"
-    alias docker=docker.exe
-    alias docker-compose=docker-compose.exe
+    ```
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
     ```
 
 ## Configure Python and the App
@@ -49,11 +45,15 @@
     pip3 install -r requirements.txt
     ```
 
-4. Set enviornment variable for flask app.
+4. Set enviornment variable for flask app. Variables can be added to the enviornment by modifiying your .bashrc file. To edit the file run:
 
     ```
-    MOVE TO .bashrc
+    sudo nano /home/UNIX_USERNAME/.bashrc
+    ```
 
+    Commands can be added to the top of the file, for example:
+
+    ```
     export FLASK_APP=flasky.py
     ```
 
@@ -64,5 +64,15 @@
     flask run
     ```
 
+## (optional) Install and setup Docker
 
+1. Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/). Make sure to enable the setting to share a local drive with Docker.
 
+2. Configure bash to run docker commands. Add to the .bashrc file by running `sudo nano /home/UNIX_USERNAME/.bashrc` and add to the top of the file:
+
+     ```
+    export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+    export PATH="$PATH:/mnt/c/Program\ Files/Docker/Docker/resources/bin"
+    alias docker=docker.exe
+    alias docker-compose=docker-compose.exe
+    ```
