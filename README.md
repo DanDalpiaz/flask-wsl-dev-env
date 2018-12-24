@@ -22,6 +22,11 @@
     git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
     ```
+2. Clone a repository:
+
+    ```
+    git clone https://github.com/user/repo.git
+    ```
 
 ## Configure Python and the App
 
@@ -64,6 +69,30 @@
     ```
     flask db upgrade
     flask run
+    ```
+
+## (optional) Install and setup Heroku
+
+1. Create an account at [heroku.com](https://heroku.com).
+
+2. Install the Heroku command line interface:
+
+    ```
+    sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    ```
+
+3. Create a Heroku project:
+
+    ```
+    heroku login
+    heroku create
+    ```
+
+4. Update git remote (if necessary)
+
+    ```
+    git remote set-url heroku https://git.heroku.com/example.git 
+    git remote -v
     ```
 
 ## (optional) Install and setup Docker
